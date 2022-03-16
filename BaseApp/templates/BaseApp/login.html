@@ -1,0 +1,23 @@
+{% extends 'BaseApp/base.html' %}
+
+
+{% block "content" %}
+{% if msg %}
+
+	<label>{{ msg  }}</label>
+
+{% endif %}
+<form method='post' action='{% url 'login_validate' %}'>
+	{% csrf_token %}
+	<label>Username</label>
+	<input type="text" name="username">
+	<br>
+
+	<label>Password</label>
+	<input type="password" name="password">
+
+	<input type="submit">
+	</form>
+
+{% endblock  %}
+

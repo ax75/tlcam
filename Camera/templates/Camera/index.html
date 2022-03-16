@@ -1,0 +1,18 @@
+{% extends "BaseApp/base.html" %}
+{% load cur_project %}
+
+{% block "content" %}
+	
+
+	<a href="{% url 'logout' %}">logout</a>
+	{% active_project as project %}
+	{% if project %}
+	{{ project  }}
+	{% else %}
+		None
+	{% endif %}
+	Home
+
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "BaseApp/base.html"  %}
+
+{% block "content"  %}
+
+	{% for project in projects  %}
+
+		{{ project.name  }}
+		<a href="{% url 'update_project' project.slug  %}"><button>Edit</button></a>
+		{% if project.status  %}
+		<a href="{% url 'stop_project' project.slug  %}">Stop</a>
+
+		{% else  %}
+		<a href="{% url 'start_project' project.slug  %}">Start</a>
+
+		{% endif  %}
+		<br>
+
+	{% endfor  %}
+
+{% endblock  %}

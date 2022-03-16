@@ -1,0 +1,32 @@
+{% extends "BaseApp/base.html"  %}
+
+{% block "content"  %}
+
+	<form action="{% url 'update_project_action' obj.slug  %}" method="POST" >
+		{% csrf_token  %}
+	
+	<label>Project Name</label>
+	<input type="text" name="name" value="{{ obj.name  }}" required>
+	<br>
+
+	<label>Capture Interval</label>
+	<input type="number" name="interval" value="{{ obj.interval  }}" required>
+	<br>
+
+	<label>Frames Count</label>
+	<input type="number" value="{{ obj.frames_shot  }}" readonly>
+	<br>
+
+	<label>Project Status</label>
+	<select name="status">
+
+		<option value="True" {% if obj.status  %}selected{% endif  %} >On</option>
+		<option value="False" {% if obj.status == False  %}selected {% endif  %}>Off</option>
+
+	</select>
+	
+	<input type="submit">
+	</form>
+
+
+{% endblock  %}
